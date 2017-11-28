@@ -103,6 +103,28 @@ public enum StyleName {
 	}
 }
 
+public struct CheckboxAttribute {
+    /// The value of this attribute is a SRColor object. The default value is nil, indicating same as foreground color.
+    public let color: SRColor?
+    
+    /// This value indicates whether the text is underlined and corresponds to one of the constants described in NSUnderlineStyle.
+    /// The default value for this attribute is styleNone.
+    //public let style = "WJCheckBoxStyle"
+    
+    /*
+     public init(color: SRColor?, style: NSUnderlineStyle?) {
+     self.color = color
+     self.style = style
+     }
+     */
+    
+    public init(color: SRColor?) {
+        self.color = color
+        //self.style = style
+    }
+    
+}
+
 //MARK: Style
 
 public func == (lhs: Style, rhs: Style) -> Bool {
@@ -191,6 +213,22 @@ public class Style: Equatable {
 		}
 	}
 	
+    
+    /// new workjournal methods to support private attributes
+    
+    public var checkbox: CheckboxAttribute? {
+        set { self.set(key: "CheckboxAttributeName", value: newValue?.color) }
+        get { return CheckboxAttribute(color: attributes["CheckboxAttributeName"] as? SRColor ) }
+    }
+    
+    
+    
+    
+    
+    
+    
+    /// end of new custom attributes
+    
 	/// The text alignment of the receiver.
 	/// Natural text alignment is realized as left or right alignment depending on the line sweep direction of the first script contained in the paragraph.
 	public var align: NSTextAlignment {
