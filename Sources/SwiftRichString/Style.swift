@@ -105,24 +105,16 @@ public enum StyleName {
 
 public struct CheckboxAttribute {
     /// The value of this attribute is a SRColor object. The default value is nil, indicating same as foreground color.
-    public let color: SRColor?
+    public let uuid: String?
     
     /// This value indicates whether the text is underlined and corresponds to one of the constants described in NSUnderlineStyle.
     /// The default value for this attribute is styleNone.
     //public let style = "WJCheckBoxStyle"
     
-    /*
-     public init(color: SRColor?, style: NSUnderlineStyle?) {
-     self.color = color
-     self.style = style
-     }
-     */
     
-    public init(color: SRColor?) {
-        self.color = color
-        //self.style = style
+    public init(uuid: String?) {
+        self.uuid = uuid
     }
-    
 }
 
 //MARK: Style
