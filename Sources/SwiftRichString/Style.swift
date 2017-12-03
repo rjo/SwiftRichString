@@ -209,8 +209,8 @@ public class Style: Equatable {
     /// new workjournal methods to support private attributes
     
     public var checkbox: CheckboxAttribute? {
-        set { self.set(key: "CheckboxAttributeName", value: newValue?.color) }
-        get { return CheckboxAttribute(color: attributes["CheckboxAttributeName"] as? SRColor ) }
+        set { self.set(key: "CheckboxAttributeName", value: newValue?.uuid) }
+        get { return CheckboxAttribute(uuid: attributes["CheckboxAttributeName"] as? String ) }
     }
     
     
