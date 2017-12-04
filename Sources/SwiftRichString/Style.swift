@@ -103,19 +103,7 @@ public enum StyleName {
 	}
 }
 
-public struct CheckboxAttribute {
-    /// The value of this attribute is a SRColor object. The default value is nil, indicating same as foreground color.
-    public let uuid: String?
-    
-    /// This value indicates whether the text is underlined and corresponds to one of the constants described in NSUnderlineStyle.
-    /// The default value for this attribute is styleNone.
-    //public let style = "WJCheckBoxStyle"
-    
-    
-    public init(uuid: String?) {
-        self.uuid = uuid
-    }
-}
+
 
 //MARK: Style
 
@@ -186,7 +174,7 @@ public class Style: Equatable {
 	/// - Parameters:
 	///   - key: key to assign
 	///   - value: value to assign (nil to remove key from cached dictionay, valid value to set)
-	private func set(key: String, value: Any?) {
+	public func set(key: String, value: Any?) {
 		guard let setValue = value else {
 			attributes.removeValue(forKey: key)
 			return
@@ -194,7 +182,7 @@ public class Style: Equatable {
 		attributes[key] = setValue
 	}
 	
-	private func remove(key: String) {
+	public func remove(key: String) {
 		attributes.removeValue(forKey: key)
 	}
 	
@@ -206,15 +194,7 @@ public class Style: Equatable {
 	}
 	
     
-    /// new workjournal methods to support private attributes
-    
-    public var checkbox: CheckboxAttribute? {
-        set { self.set(key: "CheckboxAttributeName", value: newValue?.uuid) }
-        get { return CheckboxAttribute(uuid: attributes["CheckboxAttributeName"] as? String ) }
-    }
-    
-    
-    
+
     
     
     
